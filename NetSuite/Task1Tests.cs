@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace NetSuite
 {
@@ -16,7 +11,7 @@ namespace NetSuite
         [TestMethod]
         public void Move0ToEnd_LINQTest()
         {
-            var result = new Task1().Move0ToEnd_LINQ(example);
+            var result = new Task1().MoveZeroesToEnd_LINQ(example);
 
             Assert.AreEqual(correct.Length, result.Length);
 
@@ -29,7 +24,7 @@ namespace NetSuite
         [TestMethod]
         public void Move0ToEnd_FORTest()
         {
-            var result = new Task1().Move0ToEnd_FOR(example);
+            var result = new Task1().MoveZeroesToEnd_FOR(example);
 
             Assert.AreEqual(correct.Length, result.Length);
 
@@ -38,28 +33,5 @@ namespace NetSuite
                 Assert.AreEqual(correct[i], result[i]);
             }
         }
-    }
-
-    [TestClass]
-    public class Task2Tests
-    {
-        [TestMethod]
-        public void IsPalindromeFORTest()
-        {
-            Assert.IsTrue(new Task2().IsPalindromeFOR("dabbad"));
-            Assert.IsTrue(new Task2().IsPalindromeFOR("dabcbad"));
-            Assert.IsFalse(new Task2().IsPalindromeFOR("Dabcbad"));
-            Assert.IsFalse(new Task2().IsPalindromeFOR("Dabbad"));
-        }
-
-        [TestMethod]
-        public void IsPalindromeREVERSETest()
-        {
-            Assert.IsTrue(new Task2().IsPalindromeREVERSE("dabcbad"));
-            Assert.IsTrue(new Task2().IsPalindromeREVERSE("dabbad"));
-            Assert.IsFalse(new Task2().IsPalindromeREVERSE("Dabbad"));
-            Assert.IsFalse(new Task2().IsPalindromeREVERSE("Dabcbad"));
-        }
-
     }
 }
