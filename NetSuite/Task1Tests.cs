@@ -5,13 +5,13 @@ namespace NetSuite
     [TestClass]
     public class Task1Tests
     {
-        public int[] example = { 1, 3, 0, 8, 12, 0, 4, 0, 7 };
-        public int[] correct = { 1, 3, 8, 12, 4, 7, 0, 0, 0 };
-
         [TestMethod]
-        public void Move0ToEnd_LINQTest()
+        public void MoveZeroesToEndTest()
         {
-            var result = new Task1().MoveZeroesToEnd_LINQ(example);
+            int[] array = { 1, 3, 0, 8, 12, 0, 4, 0, 7 };
+            int[] correct = { 1, 3, 8, 12, 4, 7, 0, 0, 0 };
+
+            var result = array.MoveZeroesToEnd();
 
             Assert.AreEqual(correct.Length, result.Length);
 
@@ -22,15 +22,18 @@ namespace NetSuite
         }
 
         [TestMethod]
-        public void Move0ToEnd_FORTest()
+        public void MoveZeroesToEndInplaceTest()
         {
-            var result = new Task1().MoveZeroesToEnd_FOR(example);
+            int[] array = { 1, 3, 0, 8, 12, 0, 4, 0, 7 };
+            int[] correct = { 1, 3, 8, 12, 4, 7, 0, 0, 0 };
 
-            Assert.AreEqual(correct.Length, result.Length);
+            array.MoveZeroesToEndInplace();
+
+            Assert.AreEqual(correct.Length, array.Length);
 
             for (int i = 0; i < correct.Length; i++)
             {
-                Assert.AreEqual(correct[i], result[i]);
+                Assert.AreEqual(correct[i], array[i]);
             }
         }
     }

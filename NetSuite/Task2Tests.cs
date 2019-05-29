@@ -6,22 +6,12 @@ namespace NetSuite
     public class Task2Tests
     {
         [TestMethod]
-        public void IsPalindromeFORTest()
+        public void IsPalindromeTest()
         {
-            Assert.IsTrue(new Task2().IsPalindrome_FOR("dabbad"));
-            Assert.IsTrue(new Task2().IsPalindrome_FOR("dabcbad"));
-            Assert.IsFalse(new Task2().IsPalindrome_FOR("Dabcbad"));
-            Assert.IsFalse(new Task2().IsPalindrome_FOR("Dabbad"));
+            Assert.IsTrue(new Task2().IsPalindrome("dabbad"));
+            Assert.IsTrue(new Task2().IsPalindrome("dabcbad"));
+            Assert.IsFalse(new Task2().IsPalindrome("Dabcbad"));
+            Assert.IsFalse(new Task2().IsPalindrome("Dabbad"));
         }
-
-        [TestMethod]
-        public void IsPalindromeREVERSETest()
-        {
-            Assert.IsTrue(new Task2().IsPalindrome_StringReverse("dabcbad"));
-            Assert.IsTrue(new Task2().IsPalindrome_StringReverse("dabbad"));
-            Assert.IsFalse(new Task2().IsPalindrome_StringReverse("Dabbad"));
-            Assert.IsFalse(new Task2().IsPalindrome_StringReverse("Dabcbad"));
-        }
-
     }
 }

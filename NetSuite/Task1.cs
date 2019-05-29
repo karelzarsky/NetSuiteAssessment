@@ -1,41 +1,60 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace NetSuite
 {
-    public class Task1
+    /*
+       1. Given an unsorted integer array, place all zeros to the end of the array
+       without changing the sequence of non-zero elements.
+
+       Example:
+
+       list1 = [1, 3, 0, 8, 12, 0, 4, 0, 7] 
+       return [1,3,8,12,4,7,0,0,0]
+
+       What is the algorithmic complexity ("big O") of your function?
+    */
+
+    public static class Task1
     {
-        public int[] MoveZeroesToEnd_FOR(int[] assignment)
+        /// <summary>
+        /// Extension method.
+        /// Place all zeros to the end of the array
+        /// without changing the sequence of non-zero elements.
+        /// </summary>
+        /// <param name="array">unsorted integer array</param>
+        public static void MoveZeroesToEndInplace(this int[] array)
         {
-            var result = new int[assignment.Length];
+            int seekIndex = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (++seekIndex >= array.Length) break;
+                if (array[i] == 0)
+                {
+                    while (seekIndex < array.Length)
+                    {
+                        if (array[seekIndex] != 0) break;
+                        seekIndex++;
+                    }
+                    array[i] = array[seekIndex];
+                    array[seekIndex] = 0;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Extension method. Returns new array.
+        /// Place all zeros to the end of the array
+        /// without changing the sequence of non-zero elements.
+        /// </summary>
+        /// <param name="array">unsorted integer array</param>
+        public static int[] MoveZeroesToEnd(this int[] array)
+        {
+            var result = new int[array.Length];
             int counter = 0;
-            foreach (var x in assignment)
+            foreach (var x in array)
                 if (x != 0) result[counter++] = x;
             return result;
-        }
-
-        public int[] MoveZeroesToEnd_LINQ(int[] assignment)
-        {
-            var result = new int[assignment.Length];
-            assignment.Where(x => x != 0).ToArray().CopyTo(result, 0);
-            return result;
-        }
-    }
-
-    public class Task2
-    {
-        public bool IsPalindrome_FOR(string word)
-        {
-            for (int i = 0; i < word.Length / 2; i++)
-                if (word[i] != word[word.Length - i - 1])
-                    return false;
-            return true;
-        }
-
-        public bool IsPalindrome_StringReverse(string word)
-        {
-            return string.Compare(
-                new string(word.Substring(0, word.Length / 2).Reverse().ToArray()),
-                word.Substring((word.Length + 1) / 2, word.Length / 2)) == 0;
         }
     }
 }
