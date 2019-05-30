@@ -1,17 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace NetSuite
+namespace NetSuiteAssessment
 {
     [TestClass]
     public class Task1Tests
     {
         [TestMethod]
-        public void MoveZeroesToEndTest()
+        public void MoveZeroesToEndCopyTest()
         {
             int[] array = { 1, 3, 0, 8, 12, 0, 4, 0, 7 };
             int[] correct = { 1, 3, 8, 12, 4, 7, 0, 0, 0 };
 
-            var result = array.MoveZeroesToEnd();
+            var result = array.MoveZeroesToEndCopy();
 
             Assert.AreEqual(correct.Length, result.Length);
 

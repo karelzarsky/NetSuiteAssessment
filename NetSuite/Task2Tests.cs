@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace NetSuite
+namespace NetSuiteAssessment
 {
     [TestClass]
     public class Task2Tests

@@ -1,7 +1,6 @@
-﻿using System.Diagnostics;
-using System.Runtime.CompilerServices;
+﻿using System.Linq;
 
-namespace NetSuite
+namespace NetSuiteAssessment
 {
     /*
        1. Given an unsorted integer array, place all zeros to the end of the array
@@ -21,6 +20,7 @@ namespace NetSuite
         /// Extension method.
         /// Place all zeros to the end of the array
         /// without changing the sequence of non-zero elements.
+        /// This method has linear complexity O(n).
         /// </summary>
         /// <param name="array">unsorted integer array</param>
         public static void MoveZeroesToEndInplace(this int[] array)
@@ -46,14 +46,15 @@ namespace NetSuite
         /// Extension method. Returns new array.
         /// Place all zeros to the end of the array
         /// without changing the sequence of non-zero elements.
+        /// This method has linear complexity O(n).
         /// </summary>
         /// <param name="array">unsorted integer array</param>
-        public static int[] MoveZeroesToEnd(this int[] array)
+        public static int[] MoveZeroesToEndCopy(this int[] array)
         {
             var result = new int[array.Length];
             int counter = 0;
-            foreach (var x in array)
-                if (x != 0) result[counter++] = x;
+            foreach (var x in array.Where(x => x != 0))
+                result[counter++] = x;
             return result;
         }
     }

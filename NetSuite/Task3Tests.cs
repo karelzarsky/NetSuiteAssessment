@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace NetSuite
+namespace NetSuiteAssessment
 {
 
     /*
@@ -32,7 +32,6 @@ set(0,1,5) on A =
 
 sum(2,2) on A = 8 =1+3+4
 */
-
 
     [TestClass]
     public class Task3Tests

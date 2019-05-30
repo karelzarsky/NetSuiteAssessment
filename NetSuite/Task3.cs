@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace NetSuite
+namespace NetSuiteAssessment
 {
     /*
     3. Design a simple storage mechanism for sparse matrixes of integers(ie

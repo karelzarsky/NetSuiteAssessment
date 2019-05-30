@@ -1,4 +1,4 @@
-﻿namespace NetSuite
+﻿namespace NetSuiteAssessment
 {
     /*
      2. A palindrome is a word that reads the same backward or forward.Write a
@@ -14,6 +14,7 @@
     {
         /// <summary>
         /// Test if string is palindrome
+        /// This method has linear complexity O(n).
         /// </summary>
         /// <param name="word"></param>
         /// <returns>True if word is palindrome.</returns>
